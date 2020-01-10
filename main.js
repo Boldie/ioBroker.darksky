@@ -75,9 +75,9 @@ function startAdapter(options) {
 					adapter.config.secretKey = decrypt('ZgfrC6gFeD1jJOM', adapter.config.secretKey);
 				}
 				
-				if(obj && obj.native) {
-					adapter.config.iob_lon = obj.native.system_longitude;
-					adapter.config.iob_lat = obj.native.system_latitude;
+				if(obj && obj.common) {
+					adapter.config.iob_lon = obj.common.longitude;
+					adapter.config.iob_lat = obj.common.latitude;
 				}
 				
 				

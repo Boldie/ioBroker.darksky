@@ -70,8 +70,8 @@
             // example: select elements with id=key and class=value and insert value
 			socket.emit('getObject', 'system.config', function (err, obj) {
 				secret = (obj.native ? obj.native.secret : '') || 'ZgfrC6gFeD1jJOM';
-				settings.iob_lon = (obj.native ? obj.native.system_longitude : '');
-				settings.iob_lat = (obj.native ? obj.native.system_latitude : '');
+				settings.iob_lon = (obj.common ? obj.common.longitude : '');
+				settings.iob_lat = (obj.common ? obj.common.latitude : '');
 				loadHelper(settings, onChange);
 			});
 			onChange(false);

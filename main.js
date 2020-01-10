@@ -99,14 +99,16 @@ function startAdapter(options) {
 function main() {
 	secretKey = adapter.config.secretKey;
 
-	request(apiurl + secretKey + '/' + adapter.config.iob_lat + ',' + adapter.config.iob_lon + '?units=si&lang=de', {
-		json: true
-	}, function (error, response, body) {
-		if(error || response.statusCode != 200) {
-			adapter.log('API request failed with code ' + response.statusCode);
+	let req_opts = {url: apiurl + secretKey + '/' + adapter.config.iob_lat + ',' + adapter.config.iob_lon + '?units=si&lang=de', method: 'GET'};
+	request(req_opts, function (error, response, body) {
+		//adapter.log.info('Request result: ' + JSON.stringify([error, response, body]));
+		if(error || !response || !response.statusCode || response.statusCode != 200) {
+			adapter.log.warn('API request failed with code ' + (response && response.statusCode || 'unknown') + ': ' + JSON.stringify([req_opts]));
 			adapter.stop();
 			return;
 		}
+		
+		body = JSON.parse(body);
 		
 		setOrUpdateState('latitude', 'Latitude', body.latitude, '°', 'number', 'value.gps.latitude');
 		setOrUpdateState('longitude', 'Longitude', body.longitude, '°', 'number', 'value.gps.longitude');

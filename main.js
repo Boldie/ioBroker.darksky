@@ -158,7 +158,7 @@ function main() {
 			i++;
 		});
 		
-		let i = 0;
+		i = 0;
 		body.daily.data.forEach(function(value) {
 			setOrUpdateState('daily.' + i + '.time', 'Time of values', (value.time * 1000), '', 'number', 'date');
 			setOrUpdateState('daily.' + i + '.datetime', 'Date and time of values', new Date(value.time * 1000), '', 'string', 'date');

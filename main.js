@@ -113,7 +113,6 @@ function main() {
 		setOrUpdateState('timezone', 'Time zone', body.timezone, '', 'string', 'text');
 		
 		setOrUpdateState('current.time', 'Time of values', (body.currently.time * 1000), '', 'number', 'date');
-		setOrUpdateState('current.datetime', 'Date and time of values', new Date(body.currently.time * 1000), '', 'string', 'date');
 
 		setOrUpdateState('current.icon', 'Weather icon', body.currently.icon, '', 'string', 'text');
 		setOrUpdateState('current.precipIntensity', 'Precipitation intensity', body.currently.precipIntensity, 'mm/h', 'number', 'value');
@@ -135,7 +134,6 @@ function main() {
 		let i = 0;
 		body.hourly.data.forEach(function(value) {
 			setOrUpdateState('hourly.' + i + '.time', 'Time of values', (value.time * 1000), '', 'number', 'date');
-			setOrUpdateState('hourly.' + i + '.datetime', 'Date and time of values', new Date(value.time * 1000), '', 'string', 'date');
 
 			setOrUpdateState('hourly.' + i + '.summary', 'Weather', value.summary, '', 'string', 'text');
 			setOrUpdateState('hourly.' + i + '.icon', 'Weather icon', value.icon, '', 'string', 'text');
@@ -161,7 +159,6 @@ function main() {
 		i = 0;
 		body.daily.data.forEach(function(value) {
 			setOrUpdateState('daily.' + i + '.time', 'Time of values', (value.time * 1000), '', 'number', 'date');
-			setOrUpdateState('daily.' + i + '.datetime', 'Date and time of values', new Date(value.time * 1000), '', 'string', 'date');
 
 			setOrUpdateState('daily.' + i + '.summary', 'Weather', value.summary, '', 'string', 'text');
 			setOrUpdateState('daily.' + i + '.icon', 'Weather icon', value.icon, '', 'string', 'text');

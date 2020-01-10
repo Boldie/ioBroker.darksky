@@ -56,7 +56,6 @@ function startAdapter(options) {
 
 	adapter.on('unload', function(callback) {
 		adapter.log.info('[END] Stopping DarkSky adapter...');
-		adapter.setState('info.connection', false, true);
 	});
 
 	adapter.on('ready', function() {
@@ -65,7 +64,6 @@ function startAdapter(options) {
 			adapter.stop();
 		} else {
 			adapter.log.info('[START] Starting DarkSky adapter');
-			adapter.setState('info.connection', true, true);
 			adapter.getForeignObject('system.config', (err, obj) => {
 				if (obj && obj.native && obj.native.secret) {
 					//noinspection JSUnresolvedVariable

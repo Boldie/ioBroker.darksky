@@ -1,0 +1,80 @@
+{
+	"common": {
+		"name": "darksky",
+		"version": "0.1.0",
+		"news": {
+			"0.1.0": {
+				"en": "Initial version",
+				"de": "Initiale Version",
+				"ru": "Первоначальный вариант",
+				"pt": "Versão inicial",
+				"nl": "Eerste versie",
+				"fr": "Version initiale",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Początkowa wersja",
+				"zh-cn": "初始版本"
+			}
+		},
+		"title": "DarkSky weather forecast",
+		"titleLang": {
+			"en": "DarkSky weather forecast"
+		},
+		"desc": {
+			"en": "Adapter to get weather forecast from darksky"
+		},
+		"authors": [
+			"Marius Burkard <m.burkard@pixcept.de>"
+		],
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"mode": "schedule",
+		"schedule": "*/5 * * * *",
+		"icon": "darksky.png",
+		"extIcon": "https://raw.githubusercontent.com/StrathCole/ioBroker.darksky/master/admin/darksky.png",
+		"keywords": [
+			"iobroker",
+			"darksky",
+			"weather",
+			"forecast",
+			"api"
+		],
+		"readme": "https://github.com/StrathCole/ioBroker.darksky/blob/master/README.md",
+		"loglevel": "info",
+		"type": "weather",
+		"license": "MIT",
+		"messagebox": true,
+		"materialize": true,
+		"enabled": false,
+		"compact": true,
+		"dependencies": [
+		]
+	},
+	"native": {
+		"secretKey": ""
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Adapter-Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Whether the adapter is connected to the gateway",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
+}

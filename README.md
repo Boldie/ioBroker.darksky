@@ -5,6 +5,8 @@
 
 An ioBroker adapter for DarkSky weather forecast API
 
+## Changelog
+
 ### 0.1.0
 
 -   First running Version

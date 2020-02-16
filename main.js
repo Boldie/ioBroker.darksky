@@ -114,6 +114,7 @@ function main() {
 		
 		setOrUpdateState('current.time', 'Time of values', (body.currently.time * 1000), '', 'number', 'date');
 
+		setOrUpdateState('current.summary', 'Weather', body.currently.summary, '','string', 'text');
 		setOrUpdateState('current.icon', 'Weather icon', body.currently.icon, '', 'string', 'text');
 		setOrUpdateState('current.precipIntensity', 'Precipitation intensity', body.currently.precipIntensity, 'mm/h', 'number', 'value');
 		setOrUpdateState('current.precipProbability', 'Precipitation probability', (body.currently.precipProbability * 100), '%', 'number', 'value.probability');
@@ -130,6 +131,8 @@ function main() {
 		setOrUpdateState('current.uvIndex', 'UV index', body.currently.uvIndex, '', 'number', 'value');
 		setOrUpdateState('current.visibility', 'Visibility', body.currently.visibility, 'km', 'number', 'value.distance.visibility');
 		setOrUpdateState('current.ozone', 'Ozone', body.currently.ozone, 'DU', 'number', 'value');
+
+		setOrUpdateState('hourly.summary', 'Weather', body.hourly.summary, '','string', 'text');
 
 		let i = 0;
 		body.hourly.data.forEach(function(value) {
@@ -156,6 +159,8 @@ function main() {
 			i++;
 		});
 		
+		setOrUpdateState('daily.summary', 'Weather', body.daily.summary, '','string', 'text');
+
 		i = 0;
 		body.daily.data.forEach(function(value) {
 			setOrUpdateState('daily.' + i + '.time', 'Time of values', (value.time * 1000), '', 'number', 'date');

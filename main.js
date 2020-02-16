@@ -143,7 +143,7 @@ function main() {
 			setOrUpdateState('hourly.' + i + '.temperature', 'Temperature', value.temperature, '°C', 'number', 'value.temperature');
 			setOrUpdateState('hourly.' + i + '.apparentTemperature', 'Apparent temperature', value.apparentTemperature, '°C', 'number', 'value.temperature');
 			setOrUpdateState('hourly.' + i + '.dewPoint', 'Dew point', value.dewPoint, '°C', 'number', 'value.temperature');
-			setOrUpdateState('hourly.' + i + '.humidity', 'Hunidity', (value.humidity * 100), '%', 'number', 'value.humidity');
+			setOrUpdateState('hourly.' + i + '.humidity', 'Humidity', (value.humidity * 100), '%', 'number', 'value.humidity');
 			setOrUpdateState('hourly.' + i + '.pressure', 'Pressure', value.pressure, 'hPa', 'number', 'value.pressure');
 			setOrUpdateState('hourly.' + i + '.windSpeed', 'Wind speed', value.windSpeed, 'm/s', 'number', 'value.speed');
 			setOrUpdateState('hourly.' + i + '.windGust', 'Wind gust', value.windGust, 'm/s', 'number', 'value.speed');

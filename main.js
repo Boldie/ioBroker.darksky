@@ -131,6 +131,8 @@ function main() {
 		setOrUpdateState('current.visibility', 'Visibility', body.currently.visibility, 'km', 'number', 'value.distance.visibility');
 		setOrUpdateState('current.ozone', 'Ozone', body.currently.ozone, 'DU', 'number', 'value');
 
+		setOrUpdateState('hourly.summary', 'Weather', body.hourly.summary, '','string', 'text');
+
 		let i = 0;
 		body.hourly.data.forEach(function(value) {
 			setOrUpdateState('hourly.' + i + '.time', 'Time of values', (value.time * 1000), '', 'number', 'date');
@@ -156,6 +158,8 @@ function main() {
 			i++;
 		});
 		
+		setOrUpdateState('daily.summary', 'Weather', body.daily.summary, '','string', 'text');
+
 		i = 0;
 		body.daily.data.forEach(function(value) {
 			setOrUpdateState('daily.' + i + '.time', 'Time of values', (value.time * 1000), '', 'number', 'date');
